@@ -21,6 +21,8 @@
 
 // The heap structure is stored in a dynamically-sized array with no
 // pointers, using index jumps described in the Wikipedia Binary_heap article.
+
+// 4/5 bbinme - added missing clear method
 template <class Type>
 class MinPriorityQueue {
 	public:
@@ -29,7 +31,11 @@ class MinPriorityQueue {
             return mStorage.size();
             }
         
-
+	void clear() {
+		mStorage.shrink(0);
+		mPriority.shrink(0);
+	}
+	
         void insert( Type inValue, double inPriority ) {
             
             // stick it at the bottom of the heap
